@@ -3,5 +3,5 @@ requires = [
     "setuptools",
     "wheel",
     "setuptools_scm",
-    "cython >= 0.28.4",
+    "cython < 3.0.0"
 ]
