@@ -365,6 +365,7 @@ version_file = os.path.join(pkg_dir, "pathops", "_version.py")
 setup_params = dict(
     name="skia-pathops",
     use_scm_version={"write_to": version_file},
+    version="0.7.4",
     description="Python access to operations on paths using the Skia library",
     url="https://github.com/fonttools/skia-pathops",
     long_description=long_description,
