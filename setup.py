@@ -25,18 +25,8 @@ BUILD_SKIA_FROM_SOURCE = bool(int(os.environ.get("BUILD_SKIA_FROM_SOURCE", "1"))
 # Use this to specify the directory where your pre-built skia is located
 SKIA_LIBRARY_DIR = os.environ.get("SKIA_LIBRARY_DIR")
 
-# check if minimum required Cython is available
-cython_version_re = re.compile('\s*"cython\s*>=\s*([0-9][0-9\w\.]*)\s*"')
-with open("pyproject.toml", "r", encoding="utf-8") as fp:
-    for line in fp:
-        m = cython_version_re.match(line)
-        if m:
-            cython_min_version = m.group(1)
-            break
-    else:
-        sys.exit("error: could not parse cython version from pyproject.toml")
 try:
-    pkg_resources.require("cython >= %s" % cython_min_version)
+    pkg_resources.require("cython < 3.0.0")
 except pkg_resources.ResolutionError:
     with_cython = False
 else:
